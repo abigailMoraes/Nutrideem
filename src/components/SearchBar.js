@@ -25,6 +25,8 @@ export default function SearchBar({ items, keyword, onChange }) {
               return post;
             } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
               return post;
+            } else {
+              return null;
             }
           })
           .map((post, index) => (

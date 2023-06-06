@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/abigailmoraes.github.io/Nutrideem/static/css/main.0ae09c8b.css",
+    "main.js": "/abigailmoraes.github.io/Nutrideem/static/js/main.441d2031.js",
+    "static/media/pexels-kampus-production-6682059-1920x1080-25fps.mp4": "/abigailmoraes.github.io/Nutrideem/static/media/pexels-kampus-production-6682059-1920x1080-25fps.024a8d035a03fbc6f3c9.mp4",
+    "static/media/portrait-smiley-woman-holding-bag-with-fruits-vegetables-large.jpg": "/abigailmoraes.github.io/Nutrideem/static/media/portrait-smiley-woman-holding-bag-with-fruits-vegetables-large.ecae67bcae8cee0c97d4.jpg",
+    "static/media/grocerypeopletransparent.png": "/abigailmoraes.github.io/Nutrideem/static/media/grocerypeopletransparent.da1292b235c7b05b27cf.png",
+    "static/media/logo-white-nobg.png": "/abigailmoraes.github.io/Nutrideem/static/media/logo-white-nobg.c5b02d364913ec144ca5.png",
+    "index.html": "/abigailmoraes.github.io/Nutrideem/index.html",
+    "main.0ae09c8b.css.map": "/abigailmoraes.github.io/Nutrideem/static/css/main.0ae09c8b.css.map",
+    "main.441d2031.js.map": "/abigailmoraes.github.io/Nutrideem/static/js/main.441d2031.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ae09c8b.css",
+    "static/js/main.441d2031.js"
+  ]
+}

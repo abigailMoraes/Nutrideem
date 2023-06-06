@@ -1,0 +1,30 @@
+.item-card {
+  margin: 0.5%;
+  box-shadow: 0 0 5px 5px rgba(141, 140, 140, 0.05);
+  display: grid;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-card img {
+  height: 200px;
+  margin: 0.5%;
+}
+
+.item-card p {
+  margin: 0.5%;
+  display: flex-start;
+}
+
+.item-card Button {
+  border-radius: 20px;
+  margin-left: 65%;
+  margin-bottom: 2%;
+  background: linear-gradient(
+    90deg,
+    rgb(26, 192, 68) 0%,
+    rgb(24, 170, 36) 100%
+  );
+  color: white;
+}

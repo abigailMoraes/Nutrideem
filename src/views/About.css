@@ -1,0 +1,25 @@
+.aboutvideo {
+  margin: 2%;
+}
+.aboutvideo .summary img {
+  margin: 2%;
+  width: 60%;
+  display: inline-flex;
+}
+
+.aboutvideo h1 {
+  margin: 2%;
+}
+
+.aboutvideo .summary {
+  margin: 2%;
+  display: inline-flex;
+}
+
+.aboutvideo .about-paragraph {
+  padding: 1%;
+  height: fit-content;
+  background: linear-gradient(rgb(245, 233, 61) 20%, rgb(250, 238, 68) 80%);
+  box-shadow: 0 0 5px 5px rgba(141, 140, 140, 0.05);
+  border-radius: 5px;
+}

@@ -1,0 +1,9 @@
+.order {
+  margin: 2%;
+  font-size: medium;
+  text-align: left;
+}
+
+.order .order-description {
+  margin: 1%;
+}

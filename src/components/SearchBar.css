@@ -1,0 +1,11 @@
+.search-bar,
+.search-bar input {
+  margin: 2%;
+  font-size: medium;
+  display: block;
+  padding: 16px 24px;
+}
+
+.item-card-container {
+  display: flex;
+}

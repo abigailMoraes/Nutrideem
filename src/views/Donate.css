@@ -1,0 +1,44 @@
+.donate {
+  margin: 5%;
+}
+
+#donate-video {
+  width: 100%;
+}
+
+.donate-summary {
+  position: absolute;
+  margin: 0.5%;
+  margin-top: 15%;
+  z-index: 2;
+  color: black;
+  font-size: medium;
+  width: 85%;
+  background-color: white;
+  padding: 1%;
+  box-shadow: 0 0 10px 10px rgba(121, 119, 119, 0.07);
+  border-radius: 5px;
+}
+
+.donate-summary h1 {
+  margin: 0.5%;
+}
+
+.donate-summary h4 {
+  margin: 0.5%;
+}
+
+.donate-summary p {
+  margin: 0.5%;
+}
+
+.donate-summary Button {
+  border-radius: 20px;
+  margin: 0.5%;
+  background: linear-gradient(
+    90deg,
+    rgb(26, 192, 68) 0%,
+    rgb(24, 170, 36) 100%
+  );
+  color: white;
+}

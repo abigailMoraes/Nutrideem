@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Data from "../assets/mock-data.json";
+import React, { useState } from "react";
+
 import ItemCard from "./ItemCard";
 import "./SearchBar.css";
 import { useSelector } from "react-redux";
-import { connect } from "react-redux";
-import { addItem, deleteItem, persistItems } from "../item.action";
+
+import { deleteItem } from "../item.action";
 import { useDispatch } from "react-redux";
 
 export default function SearchBar({ items, keyword, onChange }) {
   const data = useSelector((state) => state.items);
   const dispatch = useDispatch();
-
-  const BarStyle = {
-    width: "20rem",
-    background: "#F0F0F0",
-    border: "none",
-    padding: "0.5rem",
-  };
 
   const [query, setQuery] = useState("");
   return (

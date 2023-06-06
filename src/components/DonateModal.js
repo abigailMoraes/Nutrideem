@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "./Button";
 import "./DonateModal.css";
 import { addItem, persistItems } from "../item.action";
-import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
 
 export default function DonateModal({ show, onClose }) {

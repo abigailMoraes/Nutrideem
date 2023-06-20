@@ -1,6 +1,8 @@
-import { legacy_createStore as createStore } from "redux";
-import itemReducer from "./itemreducer";
+import { configureStore } from "@reduxjs/toolkit";
+import itemReducer from "./itemSlice";
 
-const store = createStore(itemReducer);
+const store = configureStore({
+  reducer: itemReducer,
+});
 
 export default store;

@@ -14,12 +14,13 @@
 
 .item-card p {
   margin: 0.5%;
+  margin-bottom: 2%;
   display: flex-start;
 }
 
 .item-card Button {
+  display: flex-end;
   border-radius: 20px;
-  margin-left: 65%;
   margin-bottom: 2%;
   background: linear-gradient(
     90deg,

@@ -11,13 +11,49 @@
 }
 
 .modal-content {
-  width: 500px;
   background-color: white;
+  margin: 12px 8px;
+  overflow-y: scroll;
+  height: 500px;
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.modal-body textarea {
+  height: auto;
+  width: 100%;
+  margin: 2%;
+  font-size: 16px;
+  padding: 2%;
+  min-height: 30px;
+  max-height: 300px;
+  resize: none;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+.modal-content::-webkit-scrollbar {
+  /* Customize the scrollbar styles */
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #fdf9f9;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .modal-header,
 .modal-footer {
-  padding: 10px;
+  padding: 5px;
 }
 
 .modal-title {

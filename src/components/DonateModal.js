@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 import "./DonateModal.css";
-import { addItem, persistItems } from "../item.action";
+import { postItemsAsync } from "../redux/thunks";
 import { useDispatch } from "react-redux";
+import { getItemsAsync } from "../redux/thunks";
+import { useSelector } from "react-redux";
 
 export default function DonateModal({ show, onClose }) {
   const [name, setName] = useState("");
@@ -13,6 +15,8 @@ export default function DonateModal({ show, onClose }) {
   const [imagelink, setImageLink] = useState("");
   const [bestbefore, setBestBefore] = useState("");
   const [delivery, setDelivery] = useState("");
+  const currentPage = useSelector((state) => state.currentPage);
+  const PAGESIZE = 6;
 
   const dispatch = useDispatch();
   const clearFields = () => {
@@ -27,10 +31,9 @@ export default function DonateModal({ show, onClose }) {
   };
 
   const handleSubmit = (e) => {
-    console.log("donate");
     e.preventDefault();
     dispatch(
-      addItem({
+      postItemsAsync({
         name: name,
         description: description,
         brand: brand,
@@ -41,7 +44,12 @@ export default function DonateModal({ show, onClose }) {
         delivery: delivery,
       })
     );
-    dispatch(persistItems());
+    dispatch(
+      getItemsAsync({
+        currentPage: currentPage,
+        pageSize: PAGESIZE,
+      })
+    );
   };
 
   return (

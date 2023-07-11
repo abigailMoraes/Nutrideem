@@ -15,6 +15,7 @@ export default function DonateModal({ show, onClose }) {
   const [imagelink, setImageLink] = useState("");
   const [bestbefore, setBestBefore] = useState("");
   const [delivery, setDelivery] = useState("");
+  const [nutrition, setNutrition] = useState("");
   const currentPage = useSelector((state) => state.currentPage);
   const PAGESIZE = 6;
 

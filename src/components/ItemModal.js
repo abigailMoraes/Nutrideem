@@ -18,7 +18,7 @@ export default function ItemModal({ item, show, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     var itemUpdate = {
-      id: item.id,
+      _id: item._id,
       name: name,
       description: description,
       brand: brand,

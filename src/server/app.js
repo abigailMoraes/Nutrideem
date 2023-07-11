@@ -6,7 +6,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var itemsRouter = require("./routes/items");
-
+var nutritionRouter = require("./routes/nutrition");
+const db = require("./databases/database");
 var app = express();
 
 app.use(cors());
@@ -18,5 +19,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/items", itemsRouter);
+app.use("/nutrition", nutritionRouter);
 
 module.exports = app;

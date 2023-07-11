@@ -25,16 +25,21 @@ const itemSlice = createSlice({
         state.list = action.payload.data;
         state.currentPage = action.payload.currentPage;
         state.totalPages = action.payload.totalPages;
+        console.log(state.list);
       })
       .addCase(deleteItemsAsync.pending, (state, action) => {})
       .addCase(deleteItemsAsync.fulfilled, (state, action) => {
         const deletedItemId = action.payload;
-        state.list = state.list.filter((item) => item.id !== deletedItemId);
+        console.log(deletedItemId);
+        state.list = state.list.filter(
+          (item) => String(item._id) !== deletedItemId
+        );
+        console.log(state.list);
       })
       .addCase(updateItemsAsync.fulfilled, (state, action) => {
         const updatedItem = action.payload;
         state.list = state.list.map((item) =>
-          item.id === updatedItem.id ? updatedItem : item
+          item._id === updatedItem._id ? updatedItem : item
         );
       });
   },

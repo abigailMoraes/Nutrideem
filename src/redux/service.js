@@ -29,7 +29,7 @@ export const deleteItem = async (itemId) => {
 };
 
 export const editItem = async (item) => {
-  const res = await fetch(`http://localhost:3000/items/${item.id}`, {
+  const res = await fetch(`http://localhost:3000/items/${item._id}`, {
     method: "PUT",
     body: JSON.stringify(item),
     headers: {

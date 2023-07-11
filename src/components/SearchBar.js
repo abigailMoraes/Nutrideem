@@ -6,26 +6,21 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getItemsAsync } from "../redux/thunks";
 import { deleteItemsAsync } from "../redux/thunks";
+import { getNutritionAsync } from "../redux/nutritionThunk";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.list);
-  const isLoading = useSelector((state) => state.loading);
-  const currentPage = useSelector((state) => state.currentPage);
-  const totalPages = useSelector((state) => state.totalPages);
+  const items = useSelector((state) => state.items.list);
+  const isLoading = useSelector((state) => state.items.loading);
+  const currentPage = useSelector((state) => state.items.currentPage);
+  const totalPages = useSelector((state) => state.items.totalPages);
   const PAGESIZE = 6;
 
   const [query, setQuery] = useState("");
 
   const handleDeleteItem = (id) => {
+    console.log(id);
     dispatch(deleteItemsAsync(id));
-    dispatch(
-      getItemsAsync({
-        currentPage: currentPage,
-        pageSize: PAGESIZE,
-        query: query,
-      })
-    );
   };
 
   const handlePageChange = (page) => {
@@ -77,9 +72,9 @@ export default function SearchBar() {
           <div className="item-card-container">
             {items.map((item) => (
               <ItemCard
-                key={item.id}
+                key={item._id}
                 item={item}
-                handleDelete={() => handleDeleteItem(item.id)}
+                handleDelete={() => handleDeleteItem(item._id)}
               />
             ))}
           </div>

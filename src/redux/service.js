@@ -14,7 +14,7 @@ export const getItems = async (currentPage, pageSize, query) => {
 };
 
 export const addItem = async (item) => {
-  const res = await fetch(`http://${APIURL}/items`, {
+  const res = await fetch(`https://${APIURL}/items`, {
     method: "POST",
     body: JSON.stringify(item),
     headers: {
@@ -31,7 +31,7 @@ export const deleteItem = async (itemId) => {
 };
 
 export const editItem = async (item) => {
-  const res = await fetch(`http://${APIURL}/items/${item._id}`, {
+  const res = await fetch(`https://${APIURL}/items/${item._id}`, {
     method: "PUT",
     body: JSON.stringify(item),
     headers: {

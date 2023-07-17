@@ -5,7 +5,7 @@ export const getItems = async (currentPage, pageSize, query) => {
     query = "";
   }
   const res = await fetch(
-    `http://${APIURL}/items?page=${currentPage}&limit=${pageSize}&search=${query}`,
+    `https://${APIURL}/items?page=${currentPage}&limit=${pageSize}&search=${query}`,
     {
       method: "GET",
     }
@@ -25,7 +25,7 @@ export const addItem = async (item) => {
 };
 
 export const deleteItem = async (itemId) => {
-  await fetch(`http://${APIURL}/items/${itemId}`, {
+  await fetch(`https://${APIURL}/items/${itemId}`, {
     method: "DELETE",
   });
 };

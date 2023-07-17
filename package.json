@@ -20,13 +20,12 @@
     "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
-
   "scripts": {
     "install-server": "cd src && cd server && npm install",
-      "start-server": "cd src && cd server && node app.js",
-      "install-client": "npm install",
-      "build-client": "npm run build",
-      "start-client": "npm run start",
+    "start-server": "cd src && cd server && node app.js",
+    "install-client": "npm install",
+    "build-client": "npm run build",
+    "start-client": "npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

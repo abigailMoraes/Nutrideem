@@ -10,7 +10,11 @@ var nutritionRouter = require("./routes/nutrition");
 const db = require("./databases/database");
 var app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://nutrideem-client.onrender.com", // frontend URI (ReactJS)
+};
+
+app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

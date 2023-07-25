@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./ItemCard.css";
 import { Button } from "./Button";
 import ItemModal from "./ItemModal";
-import { useDispatch, useSelector } from "react-redux";
 import { getNutritionAsync } from "../redux/nutritionThunk";
 import NutritionModal from "./NutritionModal";
+import { useAppDispatch, useAppSelector } from "../redux/redux-hooks";
 
 export default function ItemCard({ item, handleDelete }) {
   const [details, setDetails] = useState(false);
   const [nutritionView, setNutritionView] = useState(false);
-  const nutritionPictures = useSelector((state) => state.nutrition.nutrition);
+  const nutritionPictures = useAppSelector(
+    (state) => state.nutrition.nutrition
+  );
   console.log(nutritionPictures);
   console.log(item._id);
   const itemNutrition = nutritionPictures.filter(
@@ -17,7 +19,7 @@ export default function ItemCard({ item, handleDelete }) {
   );
 
   console.log(itemNutrition[0]);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const viewDetails = () => {
     setDetails(true);
   };

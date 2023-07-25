@@ -5,6 +5,7 @@ import { postItemsAsync } from "../redux/thunks";
 import { useDispatch } from "react-redux";
 import { getItemsAsync } from "../redux/thunks";
 import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/redux-hooks";
 
 export default function DonateModal({ show, onClose }) {
   const [name, setName] = useState("");
@@ -16,10 +17,10 @@ export default function DonateModal({ show, onClose }) {
   const [bestbefore, setBestBefore] = useState("");
   const [delivery, setDelivery] = useState("");
   const [nutrition, setNutrition] = useState("");
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useAppSelector((state) => state.currentPage);
   const PAGESIZE = 6;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const clearFields = () => {
     setName("");
     setDescription("");
@@ -33,6 +34,19 @@ export default function DonateModal({ show, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(
+      "postItemsAsync arguments:",
+      JSON.stringify({
+        name: name,
+        description: description,
+        brand: brand,
+        donor: donor,
+        weight: weight,
+        img: imagelink,
+        bestbefore: bestbefore,
+        delivery: delivery,
+      })
+    );
     dispatch(
       postItemsAsync({
         name: name,
@@ -45,6 +59,13 @@ export default function DonateModal({ show, onClose }) {
         delivery: delivery,
       })
     );
+    console.log(
+      "getItemsAsync arguments:",
+      JSON.stringify({
+        currentPage: currentPage,
+        pageSize: PAGESIZE,
+      })
+    );
     dispatch(
       getItemsAsync({
         currentPage: currentPage,
@@ -55,7 +76,7 @@ export default function DonateModal({ show, onClose }) {
 
   return (
     show === true && (
-      <div className="modal">
+      <div data-testid="donate-modal" className="modal">
         <div className="modal-content">
           <div className="modal-header">
             <h4 className="modal-title">Donation Details</h4>
@@ -65,6 +86,7 @@ export default function DonateModal({ show, onClose }) {
               <label>
                 Name:
                 <input
+                  data-testid="name-label"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -73,6 +95,7 @@ export default function DonateModal({ show, onClose }) {
               <label>
                 Description:
                 <input
+                  data-testid="desc-label"
                   type="text"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -133,7 +156,7 @@ export default function DonateModal({ show, onClose }) {
                   name="delivery"
                 />
               </label>
-              <input type="submit" value="Donate" />
+              <input data-testid="donate-label" type="submit" value="Donate" />
             </form>
           </div>
           <div className="modal-footer">

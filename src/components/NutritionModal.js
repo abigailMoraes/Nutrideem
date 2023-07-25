@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "./Button";
 import "./NutritionModal.css";
-import { useDispatch } from "react-redux";
-import {
-  getNutritionAsync,
-  updateNutritionAsync,
-} from "../redux/nutritionThunk";
+import { updateNutritionAsync } from "../redux/nutritionThunk";
+import { useAppDispatch } from "../redux/redux-hooks";
 
 export default function NutritionModal({ nutrition, show, onClose }) {
   const [newNutrition, setNutrition] = useState(nutrition.nutrition);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();

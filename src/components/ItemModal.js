@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import "./ItemModal.css";
 import { useDispatch } from "react-redux";
 import { updateItemsAsync } from "../redux/thunks";
+import { useAppDispatch } from "../redux/redux-hooks";
 
 export default function ItemModal({ item, show, onClose }) {
   const [name, setName] = useState(item.name);
@@ -13,7 +14,7 @@ export default function ItemModal({ item, show, onClose }) {
   const [imagelink, setImageLink] = useState(item.img);
   const [bestbefore, setBestBefore] = useState(item.bestbefore);
   const [delivery, setDelivery] = useState(item.delivery);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();

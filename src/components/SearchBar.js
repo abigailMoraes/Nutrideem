@@ -7,13 +7,14 @@ import { useDispatch } from "react-redux";
 import { getItemsAsync } from "../redux/thunks";
 import { deleteItemsAsync } from "../redux/thunks";
 import { getNutritionAsync } from "../redux/nutritionThunk";
+import { useAppDispatch, useAppSelector } from "../redux/redux-hooks";
 
 export default function SearchBar() {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.items.list);
-  const isLoading = useSelector((state) => state.items.loading);
-  const currentPage = useSelector((state) => state.items.currentPage);
-  const totalPages = useSelector((state) => state.items.totalPages);
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.items.list);
+  const isLoading = useAppSelector((state) => state.items.loading);
+  const currentPage = useAppSelector((state) => state.items.currentPage);
+  const totalPages = useAppSelector((state) => state.items.totalPages);
   const PAGESIZE = 6;
 
   const [query, setQuery] = useState("");

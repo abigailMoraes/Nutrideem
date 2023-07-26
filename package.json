@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-backend":"NODE_ENV=test jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,6 +52,11 @@
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
-    "react-test-renderer": "^18.2.0"
+    "jest": "^27.5.1",
+    "mongodb-memory-server": "^8.13.0",
+    "react-test-renderer": "^18.2.0",
+    "supertest": "^6.3.3",
+    "text-encoder-lite": "^2.0.0",
+    "text-encoding-utf-8": "^1.0.2"
   }
 }

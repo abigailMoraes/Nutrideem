@@ -35,7 +35,7 @@ export default function ItemModal({ item, show, onClose }) {
 
   return (
     show === true && (
-      <div className="modal">
+      <div data-testid="item-modal" className="modal">
         <div className="modal-content">
           <div className="modal-header">
             <h4 className="modal-title">{item.name}</h4>
@@ -111,7 +111,11 @@ export default function ItemModal({ item, show, onClose }) {
                   name="delivery"
                 />
               </label>
-              <input type="submit" value="Update Item" />
+              <input
+                data-testid="item-modal-submit"
+                type="submit"
+                value="Update Item"
+              />
             </form>
           </div>
           <div className="modal-footer">

@@ -12,7 +12,7 @@ import DonateModal from "../DonateModal";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { getItemsAsync, postItemsAsync } from "../../redux/thunks"; // Adjust the import path to the actual location of your thunks
+import { postItemsAsync, getItemsAsync } from "../../redux/thunks"; // Adjust the import path to the actual location of your thunks
 import { useAppDispatch, useAppSelector } from "../../redux/redux-hooks";
 import { testUseAppSelector } from "../../redux/test-app-selector";
 
@@ -26,7 +26,19 @@ const mockStore = configureMockStore([thunk])({
   },
 });
 
-describe("DonateModal Component", () => {
+jest.mock("../../redux/thunks", () => ({
+  // Mock the postItemsAsync function
+  postItemsAsync: jest.fn(),
+  getItemsAsync: jest.fn(),
+}));
+
+jest.mock("../../redux/service", () => ({
+  // Mock the editItem function to return a desired value
+  addItem: jest.fn().mockResolvedValue("Mocked response from editItem"),
+  getItems: jest.fn().mockResolvedValue("Mocked response from getItems"),
+}));
+
+describe("DonateModal Component Tests", () => {
   it("renders correctly when show is true", () => {
     // Mocking useSelector to return a truthy value for `show` prop
     //jest.spyOn(require("react-redux"), "useSelector").mockReturnValue(true);
@@ -58,22 +70,11 @@ describe("DonateModal Component", () => {
   });
 
   describe("DonateModal Component", () => {
-    let obj = {
-      type: "items/postItemsAsync",
-      payload: {
-        name: "Test Name",
-        description: "Test Description",
-        brand: "",
-        donor: "",
-        weight: "",
-        img: "",
-        bestbefore: "",
-        delivery: "",
-      },
-    };
-
-    const dispatch = jest.fn();
+    let dispatch;
     beforeEach(() => {
+      dispatch = jest.fn();
+      postItemsAsync.mockReturnValue(jest.fn());
+      getItemsAsync.mockReturnValue(jest.fn());
       useAppSelector.mockImplementation(testUseAppSelector);
       useAppDispatch.mockReturnValue(dispatch);
     });
@@ -104,7 +105,16 @@ describe("DonateModal Component", () => {
       console.log("After fireEvent.click:", dispatch.mock.calls);
 
       expect(useAppDispatch).toHaveBeenCalled();
-      expect(dispatch).toHaveBeenCalledTimes(2);
+      expect(postItemsAsync).toHaveBeenCalledWith({
+        name: "Test Name",
+        description: "Test Description",
+        brand: "",
+        donor: "",
+        weight: "",
+        img: "",
+        bestbefore: "",
+        delivery: "",
+      });
     });
   });
 });

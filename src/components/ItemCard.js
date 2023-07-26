@@ -31,7 +31,7 @@ export default function ItemCard({ item, handleDelete }) {
 
   useEffect(() => {
     dispatch(getNutritionAsync());
-  }, []);
+  }, [nutritionPictures]);
 
   return (
     <div className="item-card">
@@ -39,9 +39,15 @@ export default function ItemCard({ item, handleDelete }) {
       <p>{item.name}</p>
       <p>wt:{item.weight}</p>
       <p>bb:{item.bestbefore}</p>
-      <Button onClick={viewDetails}>Edit</Button>
-      <Button onClick={handleDelete}>Delete</Button>
-      <Button onClick={viewNutrition}>Nutrition</Button>
+      <Button data-testid="edit-button" onClick={viewDetails}>
+        Edit
+      </Button>
+      <Button data-testid="delete-button" onClick={handleDelete}>
+        Delete
+      </Button>
+      <Button data-testid="nutrition-button" onClick={viewNutrition}>
+        Nutrition
+      </Button>
       {details === true && (
         <ItemModal
           item={item}
@@ -51,6 +57,7 @@ export default function ItemCard({ item, handleDelete }) {
       )}
       {nutritionView === true && (
         <NutritionModal
+          data-testid="nutrition-modal"
           nutrition={itemNutrition[0]}
           show={nutritionView}
           onClose={() => setNutritionView(false)}

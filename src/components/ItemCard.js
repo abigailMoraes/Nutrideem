@@ -31,7 +31,7 @@ export default function ItemCard({ item, handleDelete }) {
 
   useEffect(() => {
     dispatch(getNutritionAsync());
-  }, [nutritionPictures]);
+  }, []);
 
   return (
     <div className="item-card">
